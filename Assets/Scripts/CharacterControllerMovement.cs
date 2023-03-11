@@ -75,7 +75,7 @@ public class CharacterControllerMovement : MonoBehaviour
 
         if(charController.enabled)
         {
-            if (Input.GetKey(KeyCode.LeftAlt)) isStrafing = true;
+            if (Input.GetKey(KeyCode.LeftShift)) isStrafing = true;
             if (isStrafing)
             {
                 charController.SimpleMove(transform.right * xInput * zInputMul * Time.deltaTime + zInput * transform.forward * Time.deltaTime);
@@ -266,6 +266,10 @@ public class CharacterControllerMovement : MonoBehaviour
         deadBody.isKinematic = false;
         deadBody.AddForce(transform.right);
         Destroy(weaponsHolder);
+
+        //visualizzo il canvas di morte
+        GameObject.Find("DeathText").GetComponent<TMP_Text>().color = new Color(1, 1, 1, 1);
+
     }
 
 }

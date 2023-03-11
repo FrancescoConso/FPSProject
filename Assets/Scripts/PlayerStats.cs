@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class PlayerStats : MonoBehaviour
 {
@@ -82,6 +83,11 @@ public class PlayerStats : MonoBehaviour
             luckPoints = 0;
             healthPoints = Mathf.Clamp(healthPoints - dmgPoints, 0, maxHealth);
         }
+    }
+
+    public void RestartScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
     
 }
